@@ -16,8 +16,8 @@ def home_page():
 def form():
     return render_template('wav.html')
 
-@app.route("/upload", methods=["POST"])
-def upload():
+@app.route("/uploaded", methods=["POST"])
+def uploaded():
     f = request.files["datafile"]
     f.save("./user.wav")
 
@@ -118,7 +118,7 @@ def upload():
     print("Total elapsed time : {}[sec]".format(round(end - start, 4)))
 
 
-    return "similar: " + path_list[max_index]
+    return "similar: " + path_list[max_index] + " percent: " + str(int(maximum*100))
     # + f.filename
 
 # アプリケーションを動かすためのおまじない
